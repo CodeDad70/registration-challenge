@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router'
 
-class Email extends Component {
+class Password extends Component {
 
   constructor() {
     super()
@@ -14,25 +14,25 @@ class Email extends Component {
   }
 
   handleOnChange = (e) => {
-    localStorage.setItem('emailFormData', JSON.stringify(e.target.value));
+    localStorage.setItem('passwordFormData', JSON.stringify(e.target.value));
   }
 
   handleSubmit = (e) => {
     e.preventDefault();   
-    if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/.test(this.getEmail.value))
+    if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/.test(this.getPassword.value))
       { 
         this.setState({ 
-          email: this.getEmail.value,
+          password: this.getPassword.value,
           fireRedirect: true 
         })
       } else
-         alert("Please enter an valid email address\n(example: name@email.com) ")
+         alert("Please enter an valid password\n(example: name@email.com) ")
   }
        
   render() {
     const { fireRedirect } = this.state  
     let placeholder
-    !localStorage.getItem('emailFormData') ?  placeholder = "Enter your email address" : placeholder = localStorage.getItem('emailFormData')
+    !localStorage.getItem('passwordFormData') ?  placeholder = "Enter a password" : placeholder = localStorage.getItem('passwordFormData')
     return (
       <div>
       <form onSubmit={this.handleSubmit}>
@@ -40,9 +40,9 @@ class Email extends Component {
       <input 
         className="searchbox" 
         required type="text" 
-        ref={(input) => this.getEmail = input}
+        ref={(input) => this.getPassword = input}
         onChange = {e => this.handleOnChange(e)}
-        name= 'emailForm'
+        name= 'passwordForm'
         placeholder={placeholder}
         value={this.state.value}
       />
@@ -50,11 +50,11 @@ class Email extends Component {
       <button className="button" >Submit</button>
 
     </form>
-    {fireRedirect&& <Redirect to={`/password`} />}
+    {fireRedirect&& <Redirect to={`/email`} />}
     </div>
     )
   }
 }
 
-export default Email 
+export default Password 
 
