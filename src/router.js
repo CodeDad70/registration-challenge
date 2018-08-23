@@ -13,6 +13,7 @@ export default () => (
   <BrowserRouter>
     <Switch>
       <Route exact path = "/email" component={Email}/>
+      <Route exact path = "/password" component={Password}/>
      
     </Switch>
   </BrowserRouter>    
