@@ -6,8 +6,7 @@ class Email extends Component {
   constructor() {
     super()
       this.state = {
-      emailFormData: '',
-      email:'',
+      email:this.state,
       password: '',
       timezone:'',
       fireRedirect: false,     
@@ -21,10 +20,17 @@ class Email extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const searchValue = this.getEmail.value;
-    if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/.test(searchValue))
-       {
-         console.log("okay")
+    
+    if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/.test(this.getEmail.value))
+    
+       { 
+        this.state.email =this.getEmail.value
+        
+        
+       console.log(this.state)
+       return console.log("done")
+       console.log("inside set state",this.getEmail.value)
+         console.log(this.state)
        } else
          alert("Please enter an valid email address\n(example: name@email.com) ")
          return (false)
@@ -32,7 +38,7 @@ class Email extends Component {
        
   render() {
     const { fireRedirect } = this.state
-    const { emailForm } = this.state.emailFormData
+   
     let placeholder
     !localStorage.getItem('emailFormData') ?  placeholder = "Enter your email address" : placeholder = localStorage.getItem('emailFormData')
     return (
