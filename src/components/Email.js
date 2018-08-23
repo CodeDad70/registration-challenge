@@ -14,10 +14,8 @@ class Email extends Component {
     }
   }
 
-  
   handleOnChange = (e) => {
-    console.log(this.getEmail.value)
-    
+    console.log(this.getEmail.value)   
     localStorage.setItem('emailFormData', JSON.stringify(this.getEmail.value));
   }
 
@@ -31,11 +29,12 @@ class Email extends Component {
          alert("Please enter an valid email address\n(example: name@email.com) ")
          return (false)
      }
-    
-    
+       
   render() {
     const { fireRedirect } = this.state
     const { emailForm } = this.state.emailFormData
+    let placeholder
+    !localStorage.getItem('emailFormData') ?  placeholder = "Enter your email address" : placeholder = localStorage.getItem('emailFormData')
     return (
       <div>
       <form onSubmit={this.handleSubmit}>
@@ -46,11 +45,11 @@ class Email extends Component {
         ref={(input) => this.getEmail = input}
         onChange = {e => this.handleOnChange(e)}
         name= 'emailForm'
-        placeholder="Enter your email "
-        value={this.emailForm}
+        placeholder={placeholder}
+        value={this.getEmail}
       />
 
-
+     
       <button className="button" >Submit</button>
 
     </form>
