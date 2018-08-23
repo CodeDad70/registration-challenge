@@ -6,11 +6,19 @@ class Email extends Component {
   constructor() {
     super()
       this.state = {
+      emailFormData: '',
       email:'',
       password: '',
       timezone:'',
       fireRedirect: false,     
     }
+  }
+
+  
+  handleOnChange = (e) => {
+    console.log(this.getEmail.value)
+    
+    localStorage.setItem('emailFormData', JSON.stringify(this.getEmail.value));
   }
 
   handleSubmit = (e) => {
@@ -20,13 +28,14 @@ class Email extends Component {
        {
          console.log("okay")
        } else
-         alert("You have entered an invalid email address!")
+         alert("Please enter an valid email address\n(example: name@email.com) ")
          return (false)
      }
     
     
   render() {
     const { fireRedirect } = this.state
+    const { emailForm } = this.state.emailFormData
     return (
       <div>
       <form onSubmit={this.handleSubmit}>
@@ -35,8 +44,12 @@ class Email extends Component {
         className="searchbox" 
         required type="text" 
         ref={(input) => this.getEmail = input}
+        onChange = {e => this.handleOnChange(e)}
+        name= 'emailForm'
         placeholder="Enter your email "
+        value={this.emailForm}
       />
+
 
       <button className="button" >Submit</button>
 
@@ -49,3 +62,4 @@ class Email extends Component {
 }
 
 export default Email 
+
