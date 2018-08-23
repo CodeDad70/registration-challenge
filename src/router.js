@@ -14,7 +14,7 @@ export default () => (
       <Route exact path = "/email" component={Email}/>
       <Route exact path = "/password" component={Password}/>
       <Route exact path = '/timezones' comoponent={Timezones}/>
-      </Switch>
+    </Switch>
   </BrowserRouter>    
 )
 
