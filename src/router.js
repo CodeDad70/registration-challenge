@@ -1,3 +1,4 @@
+
 import React from "react";
 
 import {BrowserRouter,
@@ -12,10 +13,7 @@ export default () => (
   <BrowserRouter>
     <Switch>
       <Route exact path = "/email" component={Email}/>
-      <Route exact path = "/password" component={Password}/>
-      <Route exact path = '/timezones' comoponent={Timezones}/>
+     
     </Switch>
   </BrowserRouter>    
 )
-
-

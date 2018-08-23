@@ -16,13 +16,15 @@ class Email extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const searchValue = this.getEmail.value;
-    const data = {
-      id: new Date(),
-      searchValue
-    }
-    console.log(data)
-  }
-
+    if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/.test(searchValue))
+       {
+         console.log("okay")
+       } else
+         alert("You have entered an invalid email address!")
+         return (false)
+     }
+    
+    
   render() {
     const { fireRedirect } = this.state
     return (
@@ -47,4 +49,3 @@ class Email extends Component {
 }
 
 export default Email 
-
