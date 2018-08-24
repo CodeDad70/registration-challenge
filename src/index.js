@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "react-dom";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
-import Router from "./router";
+import MainWrapper from "./MainWrapper";
 
 const client = new ApolloClient({
   uri: "https://api-uswest.graphcms.com/v1/cjjyp75qg035v01gmm81qwjhd/master"
@@ -11,7 +11,7 @@ const client = new ApolloClient({
 const App = function App() {
   return (
     <ApolloProvider client={client}>
-      <Router/>
+      <MainWrapper/>
     </ApolloProvider>
   );
 };

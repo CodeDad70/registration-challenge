@@ -3,21 +3,13 @@ import { Redirect } from 'react-router'
 
 class Password extends Component {
 
-  constructor() {
-    super()
-      this.state = {
-      email:this.state,
-      password: this.state,
-      timezone:this.state,
-      fireRedirect: false,     
-    }
-  }
 
   handleOnChange = (e) => {
     localStorage.setItem('passwordFormData', JSON.stringify(e.target.value));
   }
 
   handleSubmit = (e) => {
+    console.log('before values', this.props.state)
     e.preventDefault();   
     if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/.test(this.getPassword.value))
       { 
@@ -25,12 +17,13 @@ class Password extends Component {
           password: this.getPassword.value,
           fireRedirect: true 
         })
+        console.log(this.state)
       } else
          alert("Please enter an valid password\n(example: name@email.com) ")
   }
        
   render() {
-    const { fireRedirect } = this.state  
+    const { fireRedirect } = this.props.fireRedirect  
     let placeholder
     !localStorage.getItem('passwordFormData') ?  placeholder = "Enter a password" : placeholder = localStorage.getItem('passwordFormData')
     return (

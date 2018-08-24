@@ -3,13 +3,12 @@ import { Redirect } from 'react-router'
 
 class Email extends Component {
 
-  constructor() {
-    super()
-      this.state = {
-      email:this.state,
-      password: this.state,
-      timezone:this.state,
-      fireRedirect: false,     
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      email: "",
+      fireRedirect: false
     }
   }
 
@@ -21,16 +20,18 @@ class Email extends Component {
     e.preventDefault();   
     if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/.test(this.getEmail.value))
       { 
-        this.setState({ 
+        this.props.updateState(this.getEmail.value)
+        this.setState({
           email: this.getEmail.value,
-          fireRedirect: true 
+          fireRedirect: true
         })
       } else
          alert("Please enter an valid email address\n(example: name@email.com) ")
   }
-       
+
+
   render() {
-    const { fireRedirect } = this.state  
+    console.log(this.props.email)
     let placeholder
     !localStorage.getItem('emailFormData') ?  placeholder = "Enter your email address" : placeholder = localStorage.getItem('emailFormData')
     return (
@@ -50,7 +51,7 @@ class Email extends Component {
       <button className="button" >Submit</button>
 
     </form>
-    {fireRedirect&& <Redirect to={`/password`} />}
+    {this.props.fireRedirect&& <Redirect to={`/password`} />}
     </div>
     )
   }
