@@ -4,6 +4,7 @@ import Router from './router'
 import Email from './components/Email'
 import Password from './components/Password'
 import Timezones from './components/Timezones'
+import Nav from './components/Nav'
 
 class MainWrapper extends Component {
 
@@ -13,7 +14,7 @@ class MainWrapper extends Component {
       email:"",
       password: "",
       timezone:"",
-      fireRedirect: false,     
+          
     }
   }
 
@@ -24,15 +25,9 @@ class MainWrapper extends Component {
  }
        
   render() {
-    
-
     return (
-    <div>
-        <h2>Main Wrapper</h2> 
-          Main state : {this.state.key}
-          <br/>
-        <Email updateState={this.updateState}/>
-      
+      <div>
+        <Router/>
     </div>
     )
   }
