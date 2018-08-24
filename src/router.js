@@ -15,6 +15,7 @@ export default () => (
 
   <BrowserRouter >
     <Switch>
+      <Route exact path="/" component={Email} />
       <Route exact path="/email" component={Email} />
       <Route exact path="/password" component={Password} />
       <Route exact path="/timezones" component={Timezones} />

@@ -39,10 +39,10 @@ class Password extends Component {
     return (
       <div className = "main-card">
         <div className="headline"> <h3> Please create your password: </h3></div>
-        <sm>* Must be at least 8 characters</sm><br />
-        <sm>* Must have letters, numbers, and symbols only</sm><br />
-        <sm>* Must not allow two characters to repeat more than twice in a row</sm><br />
-        <sm>* Must have one or more uppercase letters</sm><br /><br />
+        <small>* Must be at least 8 characters</small><br />
+        <small>* Must have letters, numbers, and symbols only</small><br />
+        <small>* Must not allow two characters to repeat more than twice in a row</small><br />
+        <small>* Must have one or more uppercase letters</small><br /><br />
 
         <form onSubmit={this.handleSubmit}>
 
