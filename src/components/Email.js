@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router'
-import { updateState } from '../MainWrapper'
+import { updateState } from '../App'
 
 class Email extends Component {
 
