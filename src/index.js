@@ -1,21 +1,18 @@
 import React from "react";
-import ReactDOM from 'react-dom';
+import { render } from "react-dom";
 import ApolloClient from "apollo-boost";
-import {ApolloProvider} from 'react-apollo';
-
-import App from "./App";
-import registerServiceWorker from './registerServiceWorker';
+import { ApolloProvider } from "react-apollo";
+import Wrapper from "./Wrapper";
 import './index.css';
+import Client from './Client'
 
-const client = new ApolloClient({
-  uri: "https://api-uswest.graphcms.com/v1/cjjyp75qg035v01gmm81qwjhd/master"
-});
 
-const Root =() =>  (
+const App = function App() {
+  return (
     <ApolloProvider client={Client}>
-      <App/>
+      <Wrapper/>
     </ApolloProvider>
-);
+  );
+};
 
-ReactDOM.render(<Root />, document.getElementById('root'));
-registerServiceWorker();
+render(<App />, document.getElementById("app"));
