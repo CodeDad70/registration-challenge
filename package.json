@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "apollo-boost": "^0.1.14",
+    "apollo-boost": "^0.1.15",
     "apollo-client": "^2.4.0",
+    "apollo-client-preset": "^1.0.8",
+    "apollo-link-state": "^0.4.1",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",
+    "lodash": "^4.17.10",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-apollo": "^2.1.11",
@@ -16,6 +19,7 @@
     "react-scripts": "1.1.4",
     "react-select-search": "^0.9.3",
     "react-single-dropdown": "^1.0.6",
+    "recompose": "^0.29.0",
     "redux": "^4.0.0",
     "tz-ids": "^1.0.0"
   },
