@@ -1,18 +1,18 @@
 import React from 'react';
+import Router from './router'
 
 
-
-import './App.css';
 
 const Header = () => (
-  <header className="App-header">
+  <header >
     
-    <h1 className="App-title">Registration</h1>
+    <h1 >Registration</h1>
   </header>);
 
 const Wrapper = () => (
-  <div className="App">
+  <div >
     <Header/>
+    <Router/>
     
   </div>
 );

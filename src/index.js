@@ -4,7 +4,7 @@ import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import Wrapper from "./Wrapper";
 import './index.css';
-import Client from './Client'
+import {Client} from './Client'
 
 
 const App = function App() {
