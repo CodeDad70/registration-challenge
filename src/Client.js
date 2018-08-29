@@ -11,8 +11,8 @@ import compose from 'recompose/compose';
 */
 
 const registrationDefaults = {
-  currentEmail: [],
-  fireRedirect: false,
+  currentEmail: "",
+  fireRedirect: false
 };
 
 /*
@@ -41,13 +41,14 @@ const addEmailQuery = gql`
   Cache Mutations
 */
 
-export const addEmail = (_obj, {item}, {cache}) => {
+export const addEmail = (_obj, item, {cache}) => {
+  console.log('obj', _obj, "currentEmail", currentEmail, "cache", cache)
   const query = emailQuery;
   // Read the email from the cache
   const {currentEmail} = cache.readQuery({query});
 
   // Add the item to the current email
-  const updatedEmail = currentEmail.concat(item);
+  const updatedEmail = item;
 
   // Update the cached email
   cache.writeQuery({query, data: {currentEmail: updatedEmail}});
