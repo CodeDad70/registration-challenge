@@ -1,4 +1,3 @@
-
 import {InMemoryCache} from 'apollo-cache-inmemory';
 import {ApolloLink} from 'apollo-client-preset';
 import {ApolloClient} from 'apollo-client';
@@ -13,6 +12,7 @@ import compose from 'recompose/compose';
 
 const registrationDefaults = {
   currentEmail: [],
+  fireRedirect: false,
 };
 
 /*
@@ -41,7 +41,7 @@ const addEmailQuery = gql`
   Cache Mutations
 */
 
-const addEmail = (_obj, {item}, {cache}) => {
+export const addEmail = (_obj, {item}, {cache}) => {
   const query = emailQuery;
   // Read the email from the cache
   const {currentEmail} = cache.readQuery({query});
@@ -110,6 +110,3 @@ export {
   Client,
   withEmail
 }
-
-
-
