@@ -8,6 +8,10 @@ let fireRedirect
 
 class AddEmailView extends Component {
   inputEl;
+
+  state = {
+    fireRedirect: false,
+  }
   
   handleOnChange = (e) => {
     localStorage.setItem('emailFormData', JSON.stringify(e.target.value));
@@ -30,7 +34,7 @@ class AddEmailView extends Component {
 
   render() {
     
-    fireRedirect =false
+    
     
     let placeholder
     !localStorage.getItem('emailFormData') ? placeholder = "Enter your email address" : placeholder = localStorage.getItem('emailFormData')
