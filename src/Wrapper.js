@@ -1,7 +1,7 @@
 import React from 'react';
 import Router from './router'
 import Emails from './components/Emails';
-import AddEmail from './components/AddEmail';
+
 
 const Header = () => (
   <header >
@@ -13,8 +13,8 @@ const Wrapper = () => (
   <div >
 
     <Header/>
-    <AddEmail/>
-    <Emails/>
+   <Router/>
+   <Emails/>
     
     
     
