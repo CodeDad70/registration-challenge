@@ -9,17 +9,19 @@ import {
 import AddEmail from './components/AddEmail'
 import Password from './components/Password'
 import Timezones from './components/Timezones'
+import Nav from './components/Nav'
+
 
 
 export default () => (
 
   <BrowserRouter >
-    <Switch>
+   <div>
       <Route exact path="/" component={AddEmail} />
       <Route exact path="/email" component={AddEmail} />
       <Route exact path="/password" component={Password} />
       <Route exact path="/timezones" component={Timezones} />
-
-    </Switch>
+      <Nav/>
+   </div>
   </BrowserRouter>
 )

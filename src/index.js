@@ -4,7 +4,7 @@ import ApolloClient from "apollo-boost";
 import { withClientState } from 'apollo-link-state';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloProvider } from "react-apollo";
-import Wrapper from "./Wrapper";
+import Router from './router'
 import './index.css';
 import defaults from './graphql/defaults';
 import resolvers from './graphql/resolvers';
@@ -27,7 +27,7 @@ const client = new ApolloClient({
 const App = function App() {
   return (
     <ApolloProvider client={client}>
-      <Wrapper/>
+      <Router/>
     </ApolloProvider>
   );
 };

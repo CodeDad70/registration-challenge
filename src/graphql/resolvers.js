@@ -6,9 +6,11 @@ const query = gql`
 }
 `;
 
+
 let nextEmailId = 0;
 
 export default {
+  
   Mutation: {
     addEmail: (_, { text }, { cache }) => {
       const query = gql`
@@ -24,7 +26,7 @@ export default {
       const newEmail = {
         id: nextEmailId++,
         text,
-        completed: false,
+        
         __typename: 'EmailItem',
       };
       const data = {

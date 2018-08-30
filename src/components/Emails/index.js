@@ -4,6 +4,7 @@ import { Query } from 'react-apollo';
 import Email from './Email';
 
 
+
 const EmailsView = ({ emails }) => (
   <div>
     {emails.map(email => (

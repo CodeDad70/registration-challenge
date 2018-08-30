@@ -1,6 +1,8 @@
 import React from 'react';
 
 
+
+
 const EmailView = ({ completed, text, onClick }) => (
   <div onClick={onClick}>
   {text}
@@ -8,7 +10,7 @@ const EmailView = ({ completed, text, onClick }) => (
 );
 
 const Email = ({ id, text }) => (
-
+  
       <EmailView
         text={text}
       />
