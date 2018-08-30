@@ -1,5 +1,5 @@
 export default {
   
   emails: [],
-  password: []
+  passwords: []
 };

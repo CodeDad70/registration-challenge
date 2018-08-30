@@ -6,31 +6,31 @@ import { Redirect } from 'react-router'
 
 
 
-class AddEmailView extends Component {
+class AddPasswordView extends Component {
   inputEl;
 
   state = {
-    toPassword: false,
+    toTimezone: false,
     toFinish: false
   }
 
   handleOnChange = (e) => {
-    localStorage.setItem('emailFormData', JSON.stringify(e.target.value));
+    localStorage.setItem('passwordFormData', JSON.stringify(e.target.value));
   }
 
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { addEmail } = this.props;
+    const { addPassword } = this.props;
 
     const text = this.inputEl.value.trim();
     console.log(text)
     if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/.test(text)) {
 
-      addEmail({ variables: { text } });
+      addPassword({ variables: { text } });
 
-      this.inputEl.value = '';
-      this.setState({ toPassword: true })
+     
+      this.setState({ toTimezone: true })
 
     } else {
       alert("Please enter an valid email address\n(example: name@email.com) ")
@@ -43,11 +43,11 @@ class AddEmailView extends Component {
 
 
     let placeholder
-    !localStorage.getItem('emailFormData') ? placeholder = "Enter your email address" : placeholder = localStorage.getItem('emailFormData')
+    !localStorage.getItem('passwordFormData') ? placeholder = "Enter your password" : placeholder = localStorage.getItem('passwordFormData')
 
     return (
-      <div >
-        <div className="headline"> <h3> Please enter your email: </h3></div>
+      <div className="main-card">
+        <div className="headline"> <h3> Please enter your password: </h3></div>
         <form onSubmit={this.handleSubmit}>
           <input
             className="searchbox"
@@ -56,9 +56,9 @@ class AddEmailView extends Component {
             onChange={node => { this.handleOnChange(node) }}
             placeholder={placeholder}
           />
-          <button type="submit">Submit Email </button>
+          <button type="submit">Submit Password </button>
         </form>
-        {this.state.toPassword && <Redirect to={`/password`} />}
+        {this.state.toTimezone && <Redirect to={`/timezones`} />}
         {this.state.toFinish && <Redirect to={`/password`} />}
 
       </div>
@@ -67,28 +67,28 @@ class AddEmailView extends Component {
   }
 }
 
-const GET_EMAILS = gql`
+const GET_PASSWORDS = gql`
   {
-    emails @client {
+    passwords @client {
       id
       text
     }
   }
 `;
 
-const ADD_EMAIL = gql`
-  mutation addEmail($text: String!) {
-    addEmail(text: $text) @client {
+const ADD_PASSWORD = gql`
+  mutation addPassword($text: String!) {
+    addPassword(text: $text) @client {
       id
     }
   }
 `;
 
-const AddEmail = () => (
-  <Mutation mutation={ADD_EMAIL}>
-    {addEmail => (<AddEmailView addEmail={addEmail} />)}
+const AddPassword = () => (
+  <Mutation mutation={ADD_PASSWORD}>
+    {addPassword => (<AddPasswordView addPassword={addPassword} />)}
   </Mutation>
 );
 
 
-export default AddEmail;
+export default AddPassword;
