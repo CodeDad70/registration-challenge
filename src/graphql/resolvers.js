@@ -3,10 +3,6 @@ import gql from 'graphql-tag';
 const query = gql`
 {
   email @client
-  
-},
-
-{
   password @client
 }
 `;
@@ -27,7 +23,7 @@ export default {
           }
         }
       `;
-      
+
       const previous = cache.readQuery({ query });
       const newEmail = {
         id: nextEmailId++,
@@ -43,6 +39,7 @@ export default {
     }
     
   },
+
 
     addPassword: (_, { text }, { cache }) => {
       const query = gql`

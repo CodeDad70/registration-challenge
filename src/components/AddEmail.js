@@ -26,7 +26,7 @@ class AddEmailView extends Component {
     const text = this.inputEl.value.trim();
     console.log(text)
     if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/.test(text)) {
-
+     
       addEmail({ variables: { text } });
 
       this.inputEl.value = '';
@@ -39,14 +39,11 @@ class AddEmailView extends Component {
 
   render() {
 
-
-
-
     let placeholder
     !localStorage.getItem('emailFormData') ? placeholder = "Enter your email address" : placeholder = localStorage.getItem('emailFormData')
 
     return (
-      <div >
+      <div className="main-card">
         <div className="headline"> <h3> Please enter your email: </h3></div>
         <form onSubmit={this.handleSubmit}>
           <input

@@ -25,15 +25,11 @@ class AddPasswordView extends Component {
 
     const text = this.inputEl.value.trim();
     console.log(text)
-    if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/.test(text)) {
-
+    if (/^(?!.*([A-Za-z0-9])\1{2})(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z0-9]+$/.test(text)) {
       addPassword({ variables: { text } });
-
-     
       this.setState({ toTimezone: true })
-
     } else {
-      alert("Please enter an valid email address\n(example: name@email.com) ")
+      alert ("Please enter an valid password\nMust be at least 8 characters\nMust have letters, numbers, and symbols only\nMust not have two characters repeating\nMust have one or more uppercase letters")
     }
   };
 
