@@ -4,7 +4,7 @@ Finally it redirects to a thank you page.
 
 To run this app:
 * download and cd to the registration-challenge directory 
-* run npm install to install dependencies 
+* run yarn install to install dependencies 
 * run yarn start to start a local server
 
 
