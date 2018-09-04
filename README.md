@@ -1,4 +1,4 @@
-This is a code challenge to create a simple registration proccess. 
+This is a code challenge to create a simple registration process. 
 It first collects the users email address, then password and finally timezone. 
 Finally it redirects to a thank you page. 
 
